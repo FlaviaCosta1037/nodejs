@@ -7,6 +7,12 @@ const server = http.createServer((req, res) => {
   res.end('Hello World!');
 });
 
+const jsonServer = require("json-server");
+const cors = require("cors");
+const path = require("path");
+const router = jsonServer.router(path.join(__dirname, "db", "db.json"));
+const middlewares = jsonServer.defaults();
+
 server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}/`);
 });

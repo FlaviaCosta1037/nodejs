@@ -1,13 +1,18 @@
 {
   "name": "nodejs-app",
   "version": "1.0.0",
-  "description": "A minimal Node.js web application.",
+  "description": "Api crud1",
   "main": "index.js",
-  "author": "alphasec",
-  "license": "MIT",
+  "author": "Flavia Costa",
+  "license": "ISC",
    "dependencies": {
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "seed": "cp db/db.json",
+    "dev": "nodemon index.js"
+  },
+  "devDependencies": {
+    "nodemon": "1.18.4"
   }
 }
