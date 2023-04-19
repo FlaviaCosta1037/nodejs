@@ -1,5 +1,5 @@
-{
-    "users": {
+[
+    {
         "firstName": "Nome1",
         "lastName": "Sobrenome1",
         "age": 28,
@@ -7,4 +7,4 @@
         "password": "4822teste",
         "id": 1
     }
-}
+]

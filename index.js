@@ -3,7 +3,7 @@ const fs = require('fs');
 const PORT = 3000;
 
 const server = http.createServer((req, res) => {
-  if (req.url === '/users') { // Define a rota para a API
+  if (req.url === '/user') { // Define a rota para a API
     fs.readFile('./db/db.json', (err, data) => { // Lê o arquivo db.json
       if (err) throw err;
       res.statusCode = 200;
