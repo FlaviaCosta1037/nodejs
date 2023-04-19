@@ -13,6 +13,9 @@ const path = require("path");
 const router = jsonServer.router(path.join(__dirname, "db", "db.json"));
 const middlewares = jsonServer.defaults();
 
+server.use(cors());
+server.use("/api", router);
+
 server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}/`);
 });
