@@ -1,10 +1,10 @@
 [
     {
-        "firstName": "Nome1",
-        "lastName": "Sobrenome1",
-        "age": 28,
+        "nome": "Nome1",
+        "sobrenome": "Sobrenome1",
+        "idade": 28,
         "email": "email1@gmail.com",
-        "password": "4822teste",
+        "senha": "4822teste",
         "id": 1
     }
 ]
