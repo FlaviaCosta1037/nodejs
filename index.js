@@ -20,7 +20,9 @@ const server = http.createServer((req, res) => {
         if (err) throw err;
         const existingData = JSON.parse(data); // Analisa o conteúdo como um objeto JavaScript
         const newData = JSON.parse(body); // Analisa o corpo da requisição como um objeto JavaScript
-        const updatedData = { ...existingData, ...newData }; // Combina os dados existentes e os novos dados
+        const newId = existingData.length > 0 ? existingData[existingData.length - 1].id + 1 : 1; // Incrementa o último ID usado ou define o ID como 1 se o arquivo estiver vazio
+        newData.id = newId; // Adiciona o novo ID ao objeto de dados da requisição POST
+        const updatedData = [...existingData, newData]; // Combina os dados existentes e os novos dados
         fs.writeFile('./db/db.json', JSON.stringify(updatedData), err => { // Escreve os dados atualizados de volta no arquivo
           if (err) throw err;
           res.statusCode = 200;
