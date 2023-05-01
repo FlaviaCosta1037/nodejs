@@ -57,6 +57,45 @@ const server = http.createServer((req, res) => {
         });
       });
     });
+  } else if (req.method === 'PATCH' && req.url.startsWith('/user/')) {
+    const id = req.url.split('/')[2];
+    let body = '';
+    req.on('data', chunk => {
+      body += chunk.toString();
+    });
+    req.on('end', () => {
+      fs.readFile('./db/db.json', (err, data) => {
+        if (err) throw err;
+        const existingData = JSON.parse(data);
+        const updatedData = existingData.map(item => {
+          if (item.id.toString() === id) {
+            const newData = JSON.parse(body);
+            newData.id = parseInt(id);
+            return { ...item, ...newData };
+          }
+          return item;
+        });
+        fs.writeFile('./db/db.json', JSON.stringify(updatedData), err => {
+          if (err) throw err;
+          res.statusCode = 200;
+          res.setHeader('Content-Type', 'text/plain');
+          res.end('Data updated successfully');
+        });
+      });
+    });
+  } else if (req.method === 'DELETE' && req.url.startsWith('/user/')) {
+    const id = req.url.split('/')[2];
+    fs.readFile('./db/db.json', (err, data) => {
+      if (err) throw err;
+      const existingData = JSON.parse(data);
+      const updatedData = existingData.filter(item => item.id.toString() !== id);
+      fs.writeFile('./db/db.json', JSON.stringify(updatedData), err => {
+        if (err) throw err;
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/plain');
+        res.end('Data deleted successfully');
+      });
+    });
   } else {
     res.statusCode = 404;
     res.setHeader('Content-Type', 'text/plain');
