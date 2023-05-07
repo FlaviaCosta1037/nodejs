@@ -1,10 +1,12 @@
-[
-    {
-        "nome": "Nome1",
-        "sobrenome": "Sobrenome1",
-        "idade": 28,
-        "email": "email1@gmail.com",
-        "senha": "4822teste",
+{
+    "user": [
+      {
+        "nome": "Nome 1",
+        "sobrenome": "Sobrenome 1",
+        "idade": "20",
+        "email": "nome@gmail.com",
+        "senha": "testesenha1",
         "id": 1
-    }
-]
+      }
+    ]
+}

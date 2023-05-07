@@ -1,19 +1,20 @@
 {
-  "name": "nodejs-app",
-  "version": "1.0.0",
-  "description": "Api crud1",
+  "name": "json-server-template",
+  "version": "0.1.0",
+  "description": "",
   "main": "index.js",
-  "author": "Flavia Costa",
-  "license": "ISC",
-  "dependencies": {
-    "json-server": "^0.17.3"
-  },
   "scripts": {
     "start": "node index.js",
-    "seed": "cp db/db.json",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "seed": "cp db/db.json"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "json-server": "^0.16.3"
   },
   "devDependencies": {
-    "nodemon": "1.18.4"
-  }
+    "nodemon": "^1.18.4"
+  },
+  "author": "Flávia Costa",
+  "license": "ISC"
 }
