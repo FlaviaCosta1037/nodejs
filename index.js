@@ -3,7 +3,15 @@ const fs = require('fs');
 const PORT = 3000;
 
 const server = http.createServer((req, res) => {
-  if (req.method === 'GET' && req.url === '/user') { // Define a rota para a API
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if(req.method === 'OPTIONS'){
+    res.statusCode = 200;
+    res.end();
+
+  } else if (req.method === 'GET' && req.url === '/user') { // Define a rota para a API
     fs.readFile('./db/db.json', (err, data) => { // Lê o arquivo db.json
       if (err) throw err;
       res.statusCode = 200;
